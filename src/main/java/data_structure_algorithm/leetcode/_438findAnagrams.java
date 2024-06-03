@@ -7,6 +7,48 @@ import java.util.Map;
 
 public class _438findAnagrams {
 
+    class Solution0 {
+        public List<Integer> findAnagrams(String s, String p) {
+            //固定滑窗
+
+            int left=0,right=0,n=s.length(),match=0;
+            Map<Character,Integer> needs = new HashMap<>();
+            Map<Character,Integer> counts = new HashMap<>();
+            List<Integer> res= new ArrayList();
+            //初始化p
+            for(char c:p.toCharArray()){
+                needs.put(c,needs.getOrDefault(c,0)+1);
+            }
+
+            while(right<n){
+                char cr = s.charAt(right++);
+                if(needs.containsKey(cr)){
+                    counts.put(cr,counts.getOrDefault(cr,0)+1);
+                    if(counts.get(cr).equals(needs.get(cr))){
+                        match++;
+                    }
+                }
+
+                //固定滑窗的话，移动左指针的条件就是right-left 是固定长度
+                if(right-left==p.length()){
+                    if(match==needs.size()){
+                        res.add(left);
+                    }
+                    char cl = s.charAt(left++);
+                    if(needs.containsKey(cl)){
+                        if(counts.get(cl).equals(needs.get(cl))){
+                            match--;
+                        }
+                        counts.put(cl, counts.get(cl)-1);
+                    }
+                }
+
+            }
+
+            return res;
+        }
+    }
+
     public static class Solution1 {
 
         /**
