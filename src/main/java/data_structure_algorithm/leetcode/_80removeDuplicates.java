@@ -8,6 +8,9 @@ public class _80removeDuplicates {
          双指针：(类似题："26.删除有序数组中的重复项")
          时间复杂度：O(N)
          空间复杂度：O(1)
+         // 快慢指针： 慢指针标记该放的位置在哪，快指针往后去寻找不同的元素位置，找到之后放回到慢指针的地方
+         //不同元素：跟两个前的比，允许有两个相同的
+
          */
         public int removeDuplicates(int[] nums) {
             int n = nums.length;

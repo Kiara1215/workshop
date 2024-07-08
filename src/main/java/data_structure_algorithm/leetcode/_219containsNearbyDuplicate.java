@@ -35,7 +35,30 @@ public class _219containsNearbyDuplicate {
     public static class Solution2 {
 
         /**
-         滑动窗口
+         滑动窗口--思路更明了的写法
+         时间复杂度：O(N)
+         空间复杂度：O(N)
+         */
+
+        public boolean containsNearbyDuplicate0(int[] nums, int k) {
+            Set<Integer> set = new HashSet<>();
+            int left = 0, right = 0;
+            while(right < nums.length){
+                //移动右指针
+                if(set.contains(nums[right])){
+                    return true;
+                }
+                set.add(nums[right++]);
+                //移动左指针
+                if(right-left>k){
+                    set.remove(nums[left++]);
+                }
+            }
+            return false;
+        }
+
+        /**
+         滑动窗口--简化的写法：
          思路：维持窗口大小为k，当要加入右指针对应的元素时，需要首先判断窗口大小，如果窗口大小大于k，
          需要首先移除左指针对应的元素，然后再加入右指针对应的元素
          时间复杂度：O(N)

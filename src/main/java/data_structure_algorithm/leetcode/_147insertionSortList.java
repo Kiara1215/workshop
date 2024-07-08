@@ -18,10 +18,12 @@ public class _147insertionSortList {
                 head = head.next;
 
                 ListNode p = dummy;
+                //找到那个合适的插入位置p.next
                 while (p.next != null) {
                     if (tmp.val < p.next.val) break;
                     else p = p.next;
                 }
+                //把tmp放到中间
                 tmp.next = p.next;
                 p.next = tmp;
             }

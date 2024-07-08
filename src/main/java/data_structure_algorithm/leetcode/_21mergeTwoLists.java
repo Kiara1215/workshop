@@ -29,16 +29,23 @@ public class _21mergeTwoLists {
                     p = p.next;
                 }
             }
-            while (p1 != null) {
-                p.next = p1;
-                p1 = p1.next;
-                p = p.next;
-            }
-            while (p2 != null) {
+            //只剩一个了，直接链接到p后面就行了
+            if(p1 == null){
                 p.next = p2;
-                p2 = p2.next;
-                p = p.next;
+            }else{
+                p.next = p1;
             }
+
+//            while (p1 != null) {
+//                p.next = p1;
+//                p1 = p1.next;
+//                p = p.next;
+//            }
+//            while (p2 != null) {
+//                p.next = p2;
+//                p2 = p2.next;
+//                p = p.next;
+//            }
             return dummy.next;
         }
 
