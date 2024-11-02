@@ -45,8 +45,10 @@ public class _142detectCycle {
              while(null != fast && null != fast.next) {
                  slow = slow.next;
                  fast = fast.next.next;
+                 //下面说明有环
                  if (slow == fast) {
                      slow = head;
+                     //找起始点
                      while(slow != fast) {
                          slow = slow.next;
                          fast = fast.next;

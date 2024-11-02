@@ -25,6 +25,7 @@ public class _687longestUnivaluePath {
         private int maxLen = 0;
         private int dfs(TreeNode cur) {
             if (cur == null) return 0;
+            //必须要先计算dfs左右节点，不能把dfs放到if里面，因为要遍历全部节点，不能有条件的遍历。但对于本节点取数的时候，可以有条件的取数
             int leftLen = dfs(cur.left);
             int rightLen = dfs(cur.right);
 

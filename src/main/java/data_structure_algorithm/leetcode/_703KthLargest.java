@@ -27,15 +27,25 @@ public class _703KthLargest {
             /**
              时间复杂度：log(k)
              */
+
             public int add(int val) {
-                if (pq.size() < k) {
-                    pq.offer(val);
-                } else if (val > pq.peek()) {
+                pq.offer(val);
+                if(pq.size()>k){
                     pq.poll();
-                    pq.offer(val);
                 }
                 return pq.peek();
             }
+
+
+//            public int add(int val) {
+//                if (pq.size() < k) {
+//                    pq.offer(val);
+//                } else if (val > pq.peek()) {
+//                    pq.poll();
+//                    pq.offer(val);
+//                }
+//                return pq.peek();
+//            }
 
         }
 

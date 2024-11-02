@@ -7,6 +7,28 @@ import java.util.Map;
 
 public class _110isBalanced {
 
+
+
+    public static class Solution1 {
+
+        /**
+         DFS
+         时间复杂度：O(N^2)
+         空间复杂度：O(N)
+         */
+        public boolean isBalanced(TreeNode root) {
+            if (root == null) return true;
+            return isBalanced(root.left) && isBalanced(root.right) && Math.abs(depth(root.left) - depth(root.right)) <= 1;
+        }
+
+        //计算一个树节点的高度的方法：*****
+        private int depth(TreeNode cur) {
+            if (cur == null) return 0;
+            return Math.max(depth(cur.left), depth(cur.right)) + 1;
+        }
+
+    }
+
     public static class Solution0 {
 
         /**
@@ -23,27 +45,6 @@ public class _110isBalanced {
         private int depth(TreeNode cur) {
             if (cur == null) return 0;
             return node2Depth.computeIfAbsent(cur, node -> Math.max(depth(node.left), depth(node.right))) + 1;
-        }
-
-    }
-
-
-
-    public static class Solution1 {
-
-        /**
-         DFS
-         时间复杂度：O(N^2)
-         空间复杂度：O(N)
-         */
-        public boolean isBalanced(TreeNode root) {
-            if (root == null) return true;
-            return isBalanced(root.left) && isBalanced(root.right) && Math.abs(depth(root.left) - depth(root.right)) <= 1;
-        }
-
-        private int depth(TreeNode cur) {
-            if (cur == null) return 0;
-            return Math.max(depth(cur.left), depth(cur.right)) + 1;
         }
 
     }

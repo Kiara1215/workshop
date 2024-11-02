@@ -10,6 +10,7 @@ public class _876middleNode {
          双指针：快慢指针
          时间复杂度：O(N)
          空间复杂度：O(1)
+         找链表中点的基础框架
          */
         public ListNode middleNode(ListNode head) {
             ListNode fast = head, slow = head;

@@ -2,6 +2,31 @@ package data_structure_algorithm.leetcode;
 
 public class _845longestMountain {
 
+    class Solution0 {
+        //滑动窗口，一段段的滑动窗口，进阶版（有上山下山）
+        public int longestMountain(int[] arr) {
+            int left = 0, right = 0, n= arr.length, maxLen =0;
+            while(right+2 < n){ //至少三个才行
+                if(arr[right+1]> arr[right]){  //如果有上坡的话
+                    //找到山顶
+                    while(right+1 < n && arr[right+1]>arr[right]) right++;
+                    if(right+1<n && arr[right+1]<arr[right]){ //如果有下坡的话
+                        //找到山底
+                        while(right+1 < n && arr[right+1]<arr[right]) right++;
+                        maxLen = Math.max(maxLen, right-left+1);
+                    }else{
+                        right++;
+                    }
+                }else{
+                    right++;
+                }
+                left = right;
+            }
+            return maxLen;
+
+        }
+    }
+
     public static class Solution1 {
 
         /**

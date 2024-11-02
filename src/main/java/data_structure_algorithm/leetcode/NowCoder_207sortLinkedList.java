@@ -30,6 +30,7 @@ public class NowCoder_207sortLinkedList {
                 p1.next = p;
                 p1 = p1.next;
             }
+            //记得拆分完都断开一下尾部
             p1.next = null;
             p2.next = null;
 
@@ -56,6 +57,7 @@ public class NowCoder_207sortLinkedList {
                 }
                 p = p.next;
             }
+            //此处必须要用while，因为虽然奇偶拆分，但合并的时候按大小排序，最后剩下的不一定是一个元素。
             while (p1 != null) {
                 p.next = p1;
                 p1 = p1.next;

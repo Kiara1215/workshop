@@ -36,10 +36,11 @@ public class _141hasCycle {
     public static class Solution2 {
 
         /**
-         快慢指针：slow一次走一格，fast一次走两格，若有环则相遇，若无环则不相遇
-         时间复杂度：O(N)
-         空间复杂度：O(1)
-         */
+         //快慢指针的写法：慢指针走一步，快指针走两步，如果两个指针早晚相遇了就代表有环，如果没有环，一定会遍历到null
+         // 备注：其实快慢指针速度相差多少倍都可以，入环时机早晚无所谓，只要有环，这俩早晚会相遇，这就是所谓的宿命
+         //时间：O(N)
+         //空间：O(1)
+         **/
          public boolean hasCycle(ListNode head) {
              if (null == head) return false;
 

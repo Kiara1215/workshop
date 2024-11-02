@@ -78,7 +78,7 @@ public class _23mergeKLists {
             if (lists == null || lists.length == 0) return null;
             return merge(lists, 0, lists.length - 1);
         }
-
+        //递归函数定义：给一个初始数组，合并start-end的部分，返回合并后的head节点
         public ListNode merge(ListNode[] lists, int low, int high) {
             if (low == high) return lists[low];
             int mid = ((high - low) >> 1) + low;

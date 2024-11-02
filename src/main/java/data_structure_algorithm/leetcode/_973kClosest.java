@@ -48,12 +48,14 @@ public class _973kClosest {
              }
 
              // 返回结果
-             List<int[]> res = new ArrayList<>(k);
-             while (!pq.isEmpty()) {
-                 int i = pq.poll()[0];
-                 res.add(points[i]);
+             int[][] res = new int[k][2];
+             int i =0;
+             while(!pq.isEmpty()){
+
+                 res[i++] = points[pq.poll()[0]];
+
              }
-             return res.toArray(new int[k][0]);
+             return res;
          }
 
     }

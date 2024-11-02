@@ -12,25 +12,28 @@ public class _234isPalindrome {
          空间复杂度：O(1)
          */
         public boolean isPalindrome(ListNode head) {
-            // 快慢指针，快指针移动到尾时，慢指针移动到中间；慢指针移动过程中反转链表前半部分
-            ListNode fast = head;
-            ListNode slow = head;
-            ListNode prev = null;
-            while (null != fast && null != fast.next) {
+            //快慢指针找到中点，同时把慢指针走过的前半部分进行翻转，然后从中间向两边逐个比较
+            //PS：用到的基础：链表翻转，找中点
+            ListNode slow = head, fast = head, prev = null;
+            //翻转链表：翻转完之后，prev和slow是断开的，slow指向链表中点，fast在链表最后或者null
+            while(fast != null && fast.next != null){
+                //首先 先移动fast，不要在翻转完再移动
                 fast = fast.next.next;
+                //然后 翻转
                 ListNode next = slow.next;
                 slow.next = prev;
                 prev = slow;
                 slow = next;
-            }
 
-            // 节点个数为奇数个时，中间节点不参与比较
-            if (null != fast) {
+            }
+            //处理特殊情况: 如果奇数个节点，中间节点不做比较，跳过
+            if(fast != null){
                 slow = slow.next;
             }
 
-            while (null != slow) {
-                if (slow.val != prev.val) {
+            //从中间到两边进行比较
+            while(prev != null && slow != null){
+                if(prev.val != slow.val){
                     return false;
                 }
                 slow = slow.next;

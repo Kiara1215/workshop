@@ -14,14 +14,14 @@ public class _2addTwoNumbers {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
             ListNode dummy = new ListNode(), p = dummy, p1 = l1, p2 = l2;
             int carry = 0;
-            while (p1 != null || p2 != null || carry != 0) {
-                int val = getVal(p1) + getVal(p2) + carry;
+            while (l1 != null || l2 != null || carry != 0) {
+                int val = getVal(l1) + getVal(l2) + carry;
                 ListNode newNode = new ListNode(val % 10);
                 p.next = newNode;
                 p = p.next;
                 carry = val / 10;
-                p1 = getNext(p1);
-                p2 = getNext(p2);
+                l1 = getNext(l1);
+                l2 = getNext(l2);
             }
             return dummy.next;
         }

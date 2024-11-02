@@ -2,7 +2,7 @@ package data_structure_algorithm.leetcode;
 
 import data_structure_algorithm.domain.ListNode;
 
-public class _369plusOne {
+public class  _369plusOne {
 
     /**
      *  Description:

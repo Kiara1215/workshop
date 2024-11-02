@@ -49,7 +49,7 @@ public class _450deleteNode {
                 if (cur.val > key) cur = cur.left;
                 else cur = cur.right;
             }
-            // 只有头节点
+            // 头结点就是要删除的
             if (parent == null) return deleteNode(cur);
             if (parent.left != null && parent.left.val == cur.val) parent.left = deleteNode(cur);
             if (parent.right != null && parent.right.val == cur.val) parent.right = deleteNode(cur);

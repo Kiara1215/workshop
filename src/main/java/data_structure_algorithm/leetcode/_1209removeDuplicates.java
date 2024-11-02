@@ -22,8 +22,8 @@ public class _1209removeDuplicates {
                 } else {
                     if (stack.peek()[0] != num) {
                         stack.push(new int[] {num, 1});
-                    } else if (stack.peek()[1] + 1 < k) {
-                        stack.peek()[1] += 1;
+                    } else if (stack.peek()[1] + 1 < k) { //此处要看+1之后的个数
+                        stack.peek()[1] += 1;  //peek之后直接加1即可改变
                     } else {
                         stack.pop();
                     }

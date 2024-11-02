@@ -18,7 +18,7 @@ public class _538convertBST {
              dfs(root);
              return root;
          }
-
+        //dfs含义：对二叉树root进行重构，并维护当前的sum值，遍历顺序要注意，考虑到题本身的依赖性质，所以顺序采用右根左
          private int sum = 0;
          private void dfs(TreeNode cur) {
              if (cur == null) return;

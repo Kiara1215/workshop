@@ -8,6 +8,8 @@ public class _33search {
     public int search(int[] nums, int target) {
         int n = nums.length;
 
+        // 首先都必须要先分段进行二分查找，因为不同端上，移动左右指针的策略是不一样的
+
         // 方法1:找最小值
         // int minIndex = findMinIndex(nums);
         // if (nums[minIndex] <= target && target <= nums[n - 1]) {
@@ -15,6 +17,7 @@ public class _33search {
         // } else {
         //     return binarySearch(nums, 0, minIndex - 1 < 0 ? n - 1 : minIndex - 1, target);
         // }
+
 
         // 方法2:找最大值
         int maxIndex = findMaxIndex(nums);

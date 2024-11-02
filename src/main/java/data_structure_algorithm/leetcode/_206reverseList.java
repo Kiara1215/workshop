@@ -14,7 +14,9 @@ public class _206reverseList {
         public ListNode reverseList(ListNode head) {
             ListNode prev = null;
             while (null != head) {
+                //先记录next，再断开
                 ListNode next = head.next;
+                //把当前的next指向pre
                 head.next = prev;
                 prev = head;
                 head = next;

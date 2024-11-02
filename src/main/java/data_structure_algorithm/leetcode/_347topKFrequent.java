@@ -22,7 +22,7 @@ public class _347topKFrequent {
                 occurrences.put(num, occurrences.getOrDefault(num, 0) + 1);
             }
 
-            // int[]的第一个元素代表元素值，第二个元素代表元素的出现次数
+            // int[]的第一个元素代表元素值，第二个元素代表元素的出现次数，构建小顶堆，poll掉小元素，保留前k个最大
             PriorityQueue<int[]> pq = new PriorityQueue<>((m, n) -> m[1] - n[1]);
             for (Integer num : occurrences.keySet()) {
                 pq.offer(new int[] {num, occurrences.get(num)});

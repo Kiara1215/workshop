@@ -15,9 +15,11 @@ public class _82deleteDuplicates {
             ListNode dummy = new ListNode(0, head), p = dummy;
             while (p.next != null) {
                 ListNode tmp = p.next;
+                //寻找重复节点区域的尾部
                 while (tmp.next != null && tmp.next.val == tmp.val) {
                     tmp = tmp.next;
                 }
+                //把前置节点和尾部的下一个节点连接起来
                 if (tmp != p.next) p.next = tmp.next;
                 else p = p.next;
             }

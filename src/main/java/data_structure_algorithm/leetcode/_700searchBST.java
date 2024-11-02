@@ -20,6 +20,15 @@ public class _700searchBST {
 
     }
 
+    //迭代2:通用的搜索模版：
+    public TreeNode searchBST(TreeNode root, int val) {
+        TreeNode cur = root;
+        while(cur != null && cur.val !=val){
+            if(cur.val>val) cur= cur.left;
+            else cur=cur.right;
+        }
+        return cur;
+    }
 
 
     public static class Solution2 {

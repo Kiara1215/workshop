@@ -41,7 +41,7 @@ public class _74searchMatrix {
     public static class Solution2 {
 
         /**
-         一次二分查找
+         一次二分查找： 因为全局按照行列顺序，是单调递增的，所以二维可以看成是一串一维的进行二分
          时间复杂度：O(log m*n)
          空间复杂度：O(1)
          */

@@ -7,6 +7,30 @@ import java.util.Map;
 
 public class _106buildTree {
 
+    //跟105题相似的解法，dfs里终止条件用这个即可：if(startInorder > endInorder) return null;
+    class Solution0 {
+        public TreeNode buildTree(int[] inorder, int[] postorder) {
+            this.inorder = inorder;
+            this.postorder = postorder;
+            return dfs(0, inorder.length-1, 0, postorder.length-1);
+        }
+        public int[] inorder;
+        public int[] postorder;
+        private TreeNode dfs(int startInorder, int endInorder, int startPostorder, int endPostorder){
+            if(startInorder > endInorder) return null;
+            TreeNode root = new TreeNode(postorder[endPostorder]);
+            int rootInorder= startInorder;
+            while(rootInorder<=endInorder && inorder[rootInorder] != postorder[endPostorder]){
+                rootInorder++;
+            }
+            int leftLen = rootInorder-startInorder;
+            root.left = dfs(startInorder, rootInorder-1, startPostorder, startPostorder+leftLen-1);
+            root.right = dfs(rootInorder+1, endInorder, startPostorder+leftLen, endPostorder-1);
+            return root;
+
+        }
+    }
+
     public static class Solution1 {
 
         /**

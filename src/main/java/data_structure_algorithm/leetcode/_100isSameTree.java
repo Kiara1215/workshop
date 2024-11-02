@@ -10,6 +10,7 @@ public class _100isSameTree {
          递归
          递推：根节点值相等，并且左右子树都是相同的树，那么这两棵树相同
          终止：节点为空
+         递归含义：判断根节点这两棵树是不是相同
          */
         public boolean isSameTree(TreeNode p, TreeNode q) {
             if (p == null && q == null) return true;

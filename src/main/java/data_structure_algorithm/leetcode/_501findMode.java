@@ -22,7 +22,7 @@ public class _501findMode {
          */
          public int[] findMode(TreeNode root) {
              List<Integer> res = new ArrayList<>();
-             if (root == null) res.stream().mapToInt(Integer::intValue).toArray();
+             if (root == null) return res.stream().mapToInt(Integer::intValue).toArray();
 
              dfs(root);
              List<Map.Entry<Integer, Integer>> list = val2Count.entrySet().stream().sorted((c1, c2) -> c2.getValue().compareTo(c1.getValue())).collect(Collectors.toList());

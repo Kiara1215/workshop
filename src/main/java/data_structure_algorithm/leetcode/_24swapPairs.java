@@ -24,7 +24,7 @@ public class _24swapPairs {
                  next.next = cur;
                  prev.next = next;
 
-                 // 游标后移
+                 // 游标后移, 注意：后移并不是顺序后移，而是移动到下一个待交换对的起始点
                  prev = cur;
                  cur = cur.next;
              }

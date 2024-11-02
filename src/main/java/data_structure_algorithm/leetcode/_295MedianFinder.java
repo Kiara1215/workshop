@@ -22,6 +22,7 @@ public class _295MedianFinder {
             /**
              时间复杂度：O(logN)
              NOTE：大顶堆元素数量 <= 小顶堆元素数量 <= 大顶堆元素数量 + 1
+             //小顶堆和大顶堆正对着，可以掐到正中间的数：保证小顶堆最多比大顶堆多一个，就刚好minPQ.peek()是中位数
              */
             public void addNum(int num) {
                 if (minHeap.isEmpty() || num > minHeap.peek()) {
