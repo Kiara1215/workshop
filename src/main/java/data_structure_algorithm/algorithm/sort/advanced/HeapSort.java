@@ -22,13 +22,13 @@ public class HeapSort {
      *      稳定性：不稳定
      */
     public void heapSort(int[] nums) {
-        // 建堆：从最后一个非叶子节点开始。时间复杂度：O(N)
+        // 建堆：从最后一个非叶子节点开始。时间复杂度：O(N) --- 建堆只是把全局最大值给找出来了，剩下的并没有排序
         int n = nums.length;
         for (int i = n >> 1; i >= 0; i--) {
             adjust(nums, n, i);
         }
 
-        // 排序
+        // 排序  --- 利用每次可以确定最大值的特性，进行排序
         for (int i = n - 1; i >= 0; i--) {
             swap(nums, i, 0);
             adjust(nums, i, 0);
@@ -43,7 +43,7 @@ public class HeapSort {
         return (i << 1) + 1;
     }
 
-    // 调整堆(下滤)。堆大小为n，待调整的元素下标为i
+    // 调整堆(下滤)。堆大小为n，待调整的元素下标为i，该方法使得从下标 i 开始至 n 形成一个合法的最大堆（把i位的元素一直往下沉，沉到应该在的位置上就停下）
     private void adjust(int[] nums, int n, int i) {
         int tmp = nums[i];
         while (leftChild(i) < n) {

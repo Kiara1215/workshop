@@ -10,7 +10,7 @@ public class _32longestValidParentheses {
     public static class Solution1 {
 
         /**
-         栈：用栈遍历一遍，将无法匹配的括号的位置标记为false，转换为寻找最长连续true的长度
+         栈：用栈遍历一遍，栈里面存的是数组元素下标，将无法匹配的括号的位置标记为false，转换为寻找最长连续true的长度
          时间复杂度：O(N)
          空间复杂度：O(N)
          */

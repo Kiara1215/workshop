@@ -20,17 +20,17 @@ public class _23mergeKLists {
                 if (list != null) pq.offer(list);
             }
 
-            ListNode head = new ListNode();
-            ListNode tail = head;
+            ListNode dummy = new ListNode();
+            ListNode p = dummy;
             while (!pq.isEmpty()) {
                 ListNode node = pq.poll();
-                tail.next = node;
-                tail = tail.next;
+                p.next = node;
+                p = p.next;
                 if (node.next != null) {
                     pq.offer(node.next);
                 }
             }
-            return head.next;
+            return dummy.next;
         }
 
 

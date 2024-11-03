@@ -15,20 +15,17 @@ public class _86partition {
             ListNode dummy1 = new ListNode(), dummy2 = new ListNode();
             ListNode p1 = dummy1, p2 = dummy2, p = head;
             while (p != null) {
-                ListNode next = p.next;
                 if (p.val < x) {
-                    p.next = p1.next;
                     p1.next = p;
                     p1 = p1.next;
                 } else {
-                    p.next = p2.next;
                     p2.next = p;
                     p2 = p2.next;
                 }
-                p = next;
+                p = p.next;
             }
             p1.next = dummy2.next;
-            dummy2.next = null;
+            p2.next = null;
             return dummy1.next;
         }
 

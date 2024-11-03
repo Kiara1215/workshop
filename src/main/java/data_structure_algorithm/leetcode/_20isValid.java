@@ -22,7 +22,7 @@ public class _20isValid {
                 } else {
                     if (stack.isEmpty()) return false;
                     if (match(stack.peek(), c)) stack.pop();
-                    else stack.push(c);
+                    else return false;
                 }
             }
             return stack.isEmpty();

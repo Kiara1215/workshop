@@ -18,7 +18,7 @@ public class _239maxSlidingWindow {
             for (int i = 0; i < k; i++) q.offer(nums[i]);
             for (int i = k; i < n; i++) {
                 res[i - k] = q.max();
-                q.poll();
+                q.poll();//这里只是把队列里按顺序去掉一个最早的，并不是最大的
                 q.offer(nums[i]);
             }
             res[n - k] = q.max();

@@ -14,6 +14,8 @@ public class _1438longestSubarray {
          空间复杂度：O(N)
          */
         public int longestSubarray(int[] nums, int limit) {
+            //思路：需要对窗口内的数字排序，最大最小差值维护一下，用来移动左指针
+            //由于需要基于键的排序功能，所以用TreeMap来记录窗口内的数字差值
             int n = nums.length, maxLen = 0, left = 0, right = 0;
             TreeMap<Integer, Integer> map = new TreeMap<>();
             while (right < n) {
@@ -53,6 +55,7 @@ public class _1438longestSubarray {
             Deque<Integer> maxQueue = new LinkedList<>();
             while (right < nums.length) {
                 int nr = nums[right++];
+                //维护最大最小队列
                 while (!minQueue.isEmpty() && minQueue.peekLast() > nr) {
                     minQueue.pollLast();
                 }
